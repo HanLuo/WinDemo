@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	if (clnt_sock == INVALID_SOCKET)
 		Error_Handling("socket() error!");
 
-	memset(&serv_addr, 0, sizeof(serv_addr));
+	memset(&serv_addr, 0, sizeof(serv_addr));// Ìî³äsin_zero
 	serv_addr.sin_family = AF_INET;
 	serv_addr.sin_addr.s_addr = inet_addr(argv[1]);
 	serv_addr.sin_port = htons(atoi(argv[2]));
