@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="hello_server_win.c">
+    <ClCompile Include="tcp_server.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
