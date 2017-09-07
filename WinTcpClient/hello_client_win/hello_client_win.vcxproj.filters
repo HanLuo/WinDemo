@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="tcp_client.c">
+    <ClCompile Include="echo_client.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

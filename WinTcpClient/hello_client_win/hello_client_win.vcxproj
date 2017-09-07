@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="tcp_client.c" />
+    <ClCompile Include="echo_client.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5A15AA60-DD4B-4DE3-9545-BAEA9DE5C3FF}</ProjectGuid>
