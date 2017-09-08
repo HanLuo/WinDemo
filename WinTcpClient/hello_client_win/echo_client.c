@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 	clnt_addr.sin_addr.s_addr = inet_addr(argv[1]);
 	clnt_addr.sin_port = htons(atoi(argv[2]));
 
-	if (connect(clnt_sock, (SOCKADDR*)&clnt_addr, sizeof(clnt_addr)) != SOCKET_ERROR)
+	if (connect(clnt_sock, (SOCKADDR*)&clnt_addr, sizeof(clnt_addr)) == SOCKET_ERROR)
 		Error_Handling("connect() error!");
 
 	while (1)
