@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
 
 		printf("clnt_sock:%d\n", clnt_sock);
 
-		while (length = recv(clnt_sock, message, BUF_SIZE, 0))
+		while (length = recv(clnt_sock, message, BUF_SIZE-1, 0))
 			send(clnt_sock, message, length, 0);
 
 		closesocket(clnt_sock);
