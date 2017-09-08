@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
 	WSADATA wsaData;
 	SOCKET clnt_sock;
 	SOCKADDR_IN clnt_addr;
+	int length;
 
 	char message[BUF_SIZE];
 
@@ -27,7 +28,27 @@ int main(int argc, char *argv[])
 	clnt_addr.sin_addr.s_addr = inet_addr(argv[1]);
 	clnt_addr.sin_port = htons(atoi(argv[2]));
 
+	if (connect(clnt_sock, (SOCKADDR*)&clnt_addr, sizeof(clnt_addr)) != SOCKET_ERROR)
+		Error_Handling("connect() error!");
 
+	while (1)
+	{
+		fputs("Input Message: ", stdout);
+		fgets(message, BUF_SIZE, stdin);
+		
+		if (!strcmp(message, "Q\n") || !strcmp(message, "q\n"))
+			break;
+
+		send(clnt_sock, message, strlen(message), 0);
+		length = recv(clnt_sock, message, BUF_SIZE-1, 0);
+		message[length] = 0;
+		printf("recv from message:%s\n", message);
+	}
+
+	closesocket(clnt_sock);
+	WSACleanup();
+	return 0;
+	
 }
 
 void Error_Handling(char *message)
