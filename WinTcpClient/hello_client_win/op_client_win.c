@@ -3,6 +3,8 @@
 #include <string.h>
 #include <winsock2.h>
 
+#pragma warning(disable:4996)
+
 #define BUF_SIZE 1024
 #define RLT_SIZE 4
 #define OPSZ 4
@@ -34,7 +36,8 @@ int main(int argc, char *argv[])
 
 	fputs("operand count: ", stdout);
 	scanf("%d", &opndCnt);
-	opmsg[0] = (char)opndCnt;
+	//opmsg[0] = (char)opndCnt;
+	sprintf(&opmsg[0], "%c", opndCnt);
 
 	for (i = 0; i < opndCnt; i++)
 	{
@@ -45,7 +48,7 @@ int main(int argc, char *argv[])
 	fputs("Operator: ", stdout);
 	scanf("%c", &opmsg[opndCnt*OPSZ + 1]);
 	send(clnt_sock, opmsg, opndCnt*OPSZ + 2, 0);
-	recv(clnt_sock, &result, RLT_SIZE, 0);
+	recv(clnt_sock, (char*)&result, RLT_SIZE, 0);
 
 	printf("Operation result: %d\n", result);
 	closesocket(clnt_sock);
