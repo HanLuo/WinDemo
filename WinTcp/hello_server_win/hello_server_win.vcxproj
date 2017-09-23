@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="op_server_win.c" />
+    <ClCompile Include="op_server_win1.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{547A3DDA-EE6C-4561-B554-2B2FF5ED4E56}</ProjectGuid>
